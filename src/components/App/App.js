@@ -1,12 +1,19 @@
 import "./App.css";
-
+import { useState } from "react";
+import Header from "../Header/Header";
 function App() {
+  const [searchChange, setSearchChange] = useState("");
+
+  const handleSearchChange = (e) => {
+    setSearchChange(e.target.value);
+  };
+
   return (
     <div className="App">
       <header className="App-header">
-        <h1>
-          Red<span>Lite</span>
-        </h1>
+        <div>
+          <Header handleChange={handleSearchChange} value={searchChange} />
+        </div>
       </header>
     </div>
   );
