@@ -1,0 +1,31 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 1px solid black;
+  width: 100%;
+  padding: 10px;
+  justify-content: space-between;
+}
+
+.searchBar {
+  padding: 5px;
+  font-size: 16px;
+  width: 300px;
+}
+
+.highlight {
+  color: rgb(33, 20, 214);
+}
+
+.logo {
+  height: 50px;
+  width: 50px;
+  margin-right: 0px;
+}
+
+.header span {
+  font-size: 24px;
+  margin-left: 0;
+  margin-right: 20px;
+}
