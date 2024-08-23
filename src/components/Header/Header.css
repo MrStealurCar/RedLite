@@ -1,17 +1,18 @@
-.header {
+.headContainer {
   display: flex;
-  flex-direction: row;
   align-items: center;
-  border: 1px solid black;
-  width: 100%;
-  padding: 10px;
   justify-content: space-between;
+  border: 1px solid lightgray;
+  width: 290%;
+  padding: 10px;
+  background-color: white;
+  border-radius: 15px;
 }
 
-.searchBar {
-  padding: 5px;
-  font-size: 16px;
-  width: 300px;
+.headInfo {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
 }
 
 .highlight {
@@ -21,11 +22,12 @@
 .logo {
   height: 50px;
   width: 50px;
-  margin-right: 0px;
+  margin-right: 10px;
 }
 
-.header span {
-  font-size: 24px;
-  margin-left: 0;
-  margin-right: 20px;
+.searchWrapper {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
