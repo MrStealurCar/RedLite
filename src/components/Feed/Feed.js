@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Feed.css";
-
+import SubredditList from "../Subreddits/Subreddit";
 function Feed({ results, onFilterChange }) {
   const [selectedPost, setSelectedPost] = useState(null);
   const [activeFilter, setActiveFilter] = useState("hot");
@@ -22,7 +22,7 @@ function Feed({ results, onFilterChange }) {
     onFilterChange(filter);
   };
   if (!results || !results.data) {
-    return <div className="loading">Loading...</div>;
+    return <div className="loading">Loading Posts...</div>;
   }
 
   const posts = results.data.children;
@@ -30,25 +30,36 @@ function Feed({ results, onFilterChange }) {
   return (
     <div className="feed">
       <div className="filters">
-        <button
-          className={`filter-button ${activeFilter === "hot" ? "active" : ""}`}
-          onClick={() => handleFilterChange("hot")}
-        >
-          Hot
-        </button>
-        <button
-          className={`filter-button ${activeFilter === "new" ? "active" : ""}`}
-          onClick={() => handleFilterChange("new")}
-        >
-          New
-        </button>
-        <button
-          className={`filter-button ${activeFilter === "best" ? "active" : ""}`}
-          onClick={() => handleFilterChange("best")}
-        >
-          Best
-        </button>
+        <div className="filter-setting">Filter by:</div>
+        <div className="button-container">
+          <button
+            className={`filter-button ${
+              activeFilter === "hot" ? "active" : ""
+            }`}
+            onClick={() => handleFilterChange("hot")}
+          >
+            Hot
+          </button>
+          <button
+            className={`filter-button ${
+              activeFilter === "new" ? "active" : ""
+            }`}
+            onClick={() => handleFilterChange("new")}
+          >
+            New
+          </button>
+          <button
+            className={`filter-button ${
+              activeFilter === "best" ? "active" : ""
+            }`}
+            onClick={() => handleFilterChange("best")}
+          >
+            Best
+          </button>
+        </div>
+        <SubredditList />
       </div>
+
       <div className="posts">
         {posts.length === 0 ? (
           <div className="no-results">No results found.</div>
@@ -75,23 +86,26 @@ function Feed({ results, onFilterChange }) {
       </div>
       {selectedPost && (
         <div className="post-detail">
-          <h2 className="post-title">{selectedPost.title}</h2>
+          <h1 className="post-title">{selectedPost.title}</h1>
           {selectedPost.selftext && (
             <p className="post-description">{selectedPost.selftext}</p>
           )}
           {selectedPost.url && (
             <img
               src={selectedPost.url}
-              alt={selectedPost.title}
+              alt="Subreddit img"
               className="post-image"
             />
           )}
-          <button
-            className="close-detail"
-            onClick={() => setSelectedPost(null)}
-          >
-            Close
-          </button>
+          <div className="button-container">
+            <button
+              className="close-button"
+              onClick={() => setSelectedPost(null)}
+            >
+              Close
+            </button>
+            <button className="comment-button">Comments</button>
+          </div>
         </div>
       )}
     </div>
