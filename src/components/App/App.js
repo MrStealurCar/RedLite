@@ -31,8 +31,6 @@ function App() {
     fetchData();
   }, [query, filter]);
 
-  console.log(query);
-
   return (
     <div className="App">
       <header className="App-header">
@@ -42,6 +40,7 @@ function App() {
             handleSearchChange={handleSearchChange}
             setFilter={setFilter}
           />
+
           <Feed results={results} onFilterChange={setFilter} />
         </div>
       </header>
