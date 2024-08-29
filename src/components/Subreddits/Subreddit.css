@@ -1,0 +1,25 @@
+.subreddit-list {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.subreddit-title {
+  font-size: 24px;
+}
+
+.subreddit-button {
+  /* background-color: dodgerblue; */
+  font-weight: bold;
+  font-size: 15px;
+  padding: 10px;
+  margin-bottom: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.subreddit-button:hover {
+  background-color: skyblue;
+}
