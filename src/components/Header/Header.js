@@ -1,18 +1,24 @@
 import "./Header.css";
 import SearchBar from "../SearchBar/SearchBar";
-function Header() {
+function Header({ searchValue, handleSearchChange, setFilter }) {
   return (
-    <div className="headContainer">
-      <div className="headInfo">
-        <img src="favicon.png" alt="redlite log" className="logo" />
-        <span>
-          red<span className="highlight">lite</span>
-        </span>
+    <header>
+      <div className="headContainer">
+        <div className="headInfo">
+          <img src="favicon.png" alt="redlite log" className="logo" />
+          <span>
+            red<span className="highlight">lite</span>
+          </span>
+        </div>
+        <div className="searchWrapper">
+          <SearchBar
+            searchValue={searchValue}
+            onChange={handleSearchChange}
+            setFilter={setFilter}
+          />
+        </div>
       </div>
-      <div className="searchWrapper">
-        <SearchBar />
-      </div>
-    </div>
+    </header>
   );
 }
 
