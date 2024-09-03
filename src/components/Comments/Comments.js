@@ -33,7 +33,7 @@ function Comments({ postId }) {
   }
 
   return (
-    <div className="comment-container">
+    <div>
       {comments.map((comment) => (
         <div key={comment.data.id} className="comment-info">
           <p>
