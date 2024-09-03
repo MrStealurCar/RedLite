@@ -20,7 +20,6 @@ function SubredditList() {
 
   return (
     <div className="subreddit-list">
-      {/* <span className="subreddit-title">Subreddits: </span> */}
       {subredditList.map((subreddit) => (
         <p key={subreddit.data.id} className="subreddit-button">
           r/{subreddit.data.display_name}
