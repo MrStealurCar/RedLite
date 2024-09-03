@@ -1,0 +1,17 @@
+.comment-info {
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  padding-left: 20px;
+  padding-bottom: 20px;
+  margin-left: 15px;
+  padding-top: 15px;
+}
+
+h5 {
+  padding-top: 10px;
+}
+
+p {
+  padding-bottom: 5px;
+}
