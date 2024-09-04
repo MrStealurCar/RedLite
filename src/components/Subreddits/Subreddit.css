@@ -3,6 +3,9 @@
   align-items: center;
   flex-direction: column;
   margin-top: 10px;
+  background-color: lightgray;
+  border: none;
+  border-radius: 15px;
 }
 
 .subreddit-title {
@@ -10,7 +13,6 @@
 }
 
 .subreddit-button {
-  /* background-color: dodgerblue; */
   font-weight: bold;
   font-size: 15px;
   padding: 10px;
@@ -22,4 +24,5 @@
 
 .subreddit-button:hover {
   background-color: skyblue;
+  transition: background-color 0.3s ease;
 }
