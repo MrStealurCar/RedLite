@@ -29,6 +29,8 @@
   display: flex;
   gap: 10px;
   border-bottom: 2px solid rgb(33, 20, 214);
+  justify-content: space-between;
+  width: 100%;
 }
 
 .filter-button {
@@ -44,10 +46,6 @@
 
 .filter-button:hover {
   background-color: skyblue;
-}
-
-.filter-button:last-child {
-  margin-right: 5px;
 }
 
 .filter-button.active {
@@ -117,10 +115,10 @@
   height: auto;
 }
 
-.button-container {
+.post-button-container {
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  margin-bottom: 15px;
 }
 
 .close-button {
