@@ -1,17 +1,16 @@
 .comment-info {
+  display: flex;
   font-size: 18px;
   border: none;
   border-radius: 5px;
-  padding-left: 20px;
-  padding-bottom: 20px;
-  margin-left: 15px;
-  padding-top: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 100%;
+  background-color: lightgrey;
 }
 
-h5 {
-  padding-top: 10px;
-}
-
-p {
-  padding-bottom: 5px;
+.comments {
+  padding: 0px 15px 20px;
+  border: 2px solid rgb(33, 20, 214);
+  background-color: white;
 }
