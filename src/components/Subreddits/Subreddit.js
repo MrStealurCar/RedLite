@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-
 import "./Subreddit.css";
 function SubredditList() {
   const [subredditList, setSubredditList] = useState([]);
