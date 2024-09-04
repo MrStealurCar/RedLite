@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import "./Feed.css";
 import SubredditList from "../Subreddits/Subreddit";
+import Comments from "../Comments/Comments";
 function Feed({ results, onFilterChange }) {
   const [selectedPost, setSelectedPost] = useState(null);
   const [activeFilter, setActiveFilter] = useState("hot");
-
+  const [showComments, setShowComments] = useState(false);
   useEffect(() => {
     if (selectedPost) {
       document.body.style.overflow = "hidden";
@@ -26,6 +27,10 @@ function Feed({ results, onFilterChange }) {
   }
 
   const posts = results.data.children;
+
+  const toggleComments = () => {
+    setShowComments((prevShowComments) => !prevShowComments);
+  };
 
   return (
     <div className="feed">
@@ -68,7 +73,10 @@ function Feed({ results, onFilterChange }) {
             <div
               key={post.data.id}
               className="post-summary"
-              onClick={() => setSelectedPost(post.data)}
+              onClick={() => {
+                setSelectedPost(post.data);
+                setShowComments(false);
+              }}
             >
               <h2 className="post-title">{post.data.title}</h2>
               <div className="post-info">
@@ -91,21 +99,20 @@ function Feed({ results, onFilterChange }) {
             <p className="post-description">{selectedPost.selftext}</p>
           )}
           {selectedPost.url && (
-            <img
-              src={selectedPost.url}
-              alt="Subreddit img"
-              className="post-image"
-            />
+            <img src={selectedPost.url} alt="Post img" className="post-image" />
           )}
-          <div className="button-container">
+          <div className="post-button-container">
             <button
               className="close-button"
               onClick={() => setSelectedPost(null)}
             >
               Close
             </button>
-            <button className="comment-button">Comments</button>
+            <button className="comment-button" onClick={toggleComments}>
+              {showComments ? "Hide Comments" : "Show Comments"}
+            </button>
           </div>
+          <div>{showComments && <Comments postId={selectedPost.id} />}</div>
         </div>
       )}
     </div>
