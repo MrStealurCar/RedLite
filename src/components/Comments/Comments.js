@@ -36,7 +36,7 @@ function Comments({ postId }) {
     <div>
       {comments.map((comment) => (
         <div key={comment.data.id} className="comment-info">
-          <p>
+          <p className="comments">
             <h5>u/{comment.data.author}:</h5>
             {comment.data.body}
           </p>
