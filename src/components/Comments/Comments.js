@@ -29,7 +29,7 @@ function Comments({ postId }) {
   }, [postId]);
 
   if (!comments || comments.length === 0) {
-    return <div>No comments available.</div>;
+    return <div className="no-comments">No comments available.</div>;
   }
 
   return (
