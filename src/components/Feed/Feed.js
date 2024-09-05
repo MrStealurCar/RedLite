@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import "./Feed.css";
 import SubredditList from "../Subreddits/Subreddit";
 import Comments from "../Comments/Comments";
+import FilterButtons from "../FilterButtons/FilterButton";
 function Feed({ results, onFilterChange }) {
   const [selectedPost, setSelectedPost] = useState(null);
-  const [activeFilter, setActiveFilter] = useState("hot");
   const [showComments, setShowComments] = useState(false);
   useEffect(() => {
     if (selectedPost) {
@@ -18,10 +18,6 @@ function Feed({ results, onFilterChange }) {
     };
   }, [selectedPost]);
 
-  const handleFilterChange = (filter) => {
-    setActiveFilter(filter);
-    onFilterChange(filter);
-  };
   if (!results || !results.data) {
     return <div className="loading">Loading Posts...</div>;
   }
@@ -35,33 +31,7 @@ function Feed({ results, onFilterChange }) {
   return (
     <div className="feed">
       <div className="filters">
-        <div className="filter-setting">Filter by:</div>
-        <div className="button-container">
-          <button
-            className={`filter-button ${
-              activeFilter === "hot" ? "active" : ""
-            }`}
-            onClick={() => handleFilterChange("hot")}
-          >
-            Hot
-          </button>
-          <button
-            className={`filter-button ${
-              activeFilter === "new" ? "active" : ""
-            }`}
-            onClick={() => handleFilterChange("new")}
-          >
-            New
-          </button>
-          <button
-            className={`filter-button ${
-              activeFilter === "best" ? "active" : ""
-            }`}
-            onClick={() => handleFilterChange("best")}
-          >
-            Best
-          </button>
-        </div>
+        <FilterButtons onFilterChange={onFilterChange} />
         <SubredditList />
       </div>
 
