@@ -2,6 +2,8 @@ import "./App.css";
 import { useEffect, useState } from "react";
 import Header from "../Header/Header";
 import Feed from "../Feed/Feed";
+import SubredditPage from "../SubredditPage/SubredditPage";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 function App() {
   const [filter, setFilter] = useState("hot");
   const [query, setQuery] = useState("");
@@ -34,15 +36,22 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <div>
-          <Header
-            searchValue={query}
-            handleSearchChange={handleSearchChange}
-            setFilter={setFilter}
-          />
-
-          <Feed results={results} onFilterChange={setFilter} />
-        </div>
+        <Router>
+          <div>
+            <Header
+              searchValue={query}
+              handleSearchChange={handleSearchChange}
+              setFilter={setFilter}
+            />
+            <Routes>
+              <Route
+                path="/"
+                element={<Feed results={results} onFilterChange={setFilter} />}
+              />
+              <Route path="/r/:subredditName" element={<SubredditPage />} />
+            </Routes>
+          </div>
+        </Router>
       </header>
     </div>
   );
