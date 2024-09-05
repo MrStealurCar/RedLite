@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Subreddit.css";
 function SubredditList() {
   const [subredditList, setSubredditList] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchSubreddits = async () => {
@@ -17,10 +19,17 @@ function SubredditList() {
     fetchSubreddits();
   }, []);
 
+  const handleSubredditChange = (subredditName) => {
+    navigate(`/r/${subredditName}`);
+  };
   return (
     <div className="subreddit-list">
       {subredditList.map((subreddit) => (
-        <p key={subreddit.data.id} className="subreddit-button">
+        <p
+          key={subreddit.data.id}
+          className="subreddit-button"
+          onClick={() => handleSubredditChange(subreddit.data.display_name)}
+        >
           r/{subreddit.data.display_name}
         </p>
       ))}
