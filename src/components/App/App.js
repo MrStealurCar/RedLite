@@ -48,7 +48,10 @@ function App() {
                 path="/"
                 element={<Feed results={results} onFilterChange={setFilter} />}
               />
-              <Route path="/r/:subredditName" element={<SubredditPage />} />
+              <Route
+                path="/r/:subredditName"
+                element={<SubredditPage onFilterChange={setFilter} />}
+              />
             </Routes>
           </div>
         </Router>
