@@ -6,7 +6,6 @@ function FilterButtons({ onFilterChange }) {
     setActiveFilter(filter);
     onFilterChange(filter);
   };
-
   return (
     <div>
       <div className="filter-setting">Filter by:</div>
