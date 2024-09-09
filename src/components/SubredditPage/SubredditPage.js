@@ -4,7 +4,7 @@ import "./SubredditPage.css";
 import SubredditList from "../Subreddits/Subreddit";
 import Comments from "../Comments/Comments";
 import FilterButtons from "../FilterButtons/FilterButton";
-function SubredditPage({ onFilterChange }) {
+function SubredditPage({ onFilterChange, filter }) {
   const { subredditName } = useParams();
   const [posts, setPosts] = useState([]);
   const [selectedPost, setSelectedPost] = useState(null);
@@ -13,7 +13,7 @@ function SubredditPage({ onFilterChange }) {
     const fetchPosts = async () => {
       try {
         const response = await fetch(
-          `https://www.reddit.com/r/${subredditName}.json`
+          `https://www.reddit.com/r/${subredditName}/${filter}.json`
         );
         const data = await response.json();
         setPosts(data.data.children);
@@ -23,7 +23,7 @@ function SubredditPage({ onFilterChange }) {
     };
 
     fetchPosts();
-  }, [subredditName]);
+  }, [subredditName, filter]);
 
   useEffect(() => {
     if (selectedPost) {
@@ -35,6 +35,10 @@ function SubredditPage({ onFilterChange }) {
     return () => {
       document.body.style.overflow = "auto"; // Cleanup
     };
+  }, [selectedPost]);
+
+  useEffect(() => {
+    setShowComments(false);
   }, [selectedPost]);
 
   const toggleComments = () => {
