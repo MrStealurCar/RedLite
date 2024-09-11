@@ -4,11 +4,12 @@ import Header from "../Header/Header";
 import Feed from "../Feed/Feed";
 import SubredditPage from "../SubredditPage/SubredditPage";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import "@fortawesome/fontawesome-free/css/all.min.css";
 function App() {
   const [filter, setFilter] = useState("hot");
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
-
+  const [searchResults, setSearchResults] = useState([]);
   const handleSearchChange = (e) => {
     setQuery(e.target.value);
   };
@@ -33,6 +34,21 @@ function App() {
     fetchData();
   }, [query, filter]);
 
+  useEffect(() => {
+    const fetchSubreddits = async () => {
+      const response =
+        await fetch(`https://www.reddit.com/subreddits/search.json?q=${query}
+`);
+      const results = await response.json();
+      setSearchResults(results);
+    };
+    if (query) {
+      fetchSubreddits();
+    } else {
+      setSearchResults([]);
+    }
+  }, [query]);
+
   return (
     <div className="App">
       <header className="App-header">
@@ -40,6 +56,8 @@ function App() {
           <div>
             <Header
               searchValue={query}
+              searchResults={searchResults}
+              setQuery={setQuery}
               handleSearchChange={handleSearchChange}
               setFilter={setFilter}
             />
