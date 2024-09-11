@@ -1,0 +1,29 @@
+.vote-buttons {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  flex-direction: column;
+  max-height: 50px;
+  font-size: 20px;
+  cursor: pointer;
+  color: black;
+  gap: 15px;
+}
+
+.like {
+  color: lawngreen;
+}
+
+.default-upvote:hover {
+  color: green;
+  transition: color 0.3s ease;
+}
+
+.downvote {
+  color: red;
+}
+
+.default-downvote:hover {
+  color: tomato;
+  transition: color 0.3s ease;
+}
