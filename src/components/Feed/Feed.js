@@ -3,6 +3,7 @@ import "./Feed.css";
 import SubredditList from "../Subreddits/Subreddit";
 import Comments from "../Comments/Comments";
 import FilterButtons from "../FilterButtons/FilterButton";
+import VoteButtons from "../VoteButtons/VoteButtons";
 function Feed({ results, onFilterChange }) {
   const [selectedPost, setSelectedPost] = useState(null);
   const [showComments, setShowComments] = useState(false);
@@ -57,6 +58,9 @@ function Feed({ results, onFilterChange }) {
                   {" "}
                   in r/{post.data.subreddit}
                 </span>
+                <div className="vote-button">
+                  <VoteButtons />
+                </div>
               </div>
             </div>
           ))
@@ -65,12 +69,16 @@ function Feed({ results, onFilterChange }) {
       {selectedPost && (
         <div className="post-detail">
           <h1 className="post-title">{selectedPost.title}</h1>
+
           {selectedPost.selftext && (
             <p className="post-description">{selectedPost.selftext}</p>
           )}
           {selectedPost.url && (
             <img src={selectedPost.url} alt="Post img" className="post-image" />
           )}
+          <div>
+            <VoteButtons />
+          </div>
           <div className="post-button-container">
             <button
               className="close-button"
@@ -78,6 +86,7 @@ function Feed({ results, onFilterChange }) {
             >
               Close
             </button>
+
             <button className="comment-button" onClick={toggleComments}>
               {showComments ? "Hide Comments" : "Show Comments"}
             </button>
