@@ -7,6 +7,7 @@ import VoteButtons from "../VoteButtons/VoteButtons";
 function Feed({ results, onFilterChange }) {
   const [selectedPost, setSelectedPost] = useState(null);
   const [showComments, setShowComments] = useState(false);
+
   useEffect(() => {
     if (selectedPost) {
       document.body.style.overflow = "hidden";
@@ -49,8 +50,9 @@ function Feed({ results, onFilterChange }) {
                 setShowComments(false);
               }}
             >
-              <h2 className="post-title">{post.data.title}</h2>
               <div className="post-info">
+                <h2 className="post-title">{post.data.title}</h2>
+
                 <span className="post-author">
                   Posted by u/{post.data.author}
                 </span>
@@ -58,9 +60,14 @@ function Feed({ results, onFilterChange }) {
                   {" "}
                   in r/{post.data.subreddit}
                 </span>
-                <div className="vote-button">
-                  <VoteButtons />
-                </div>
+                <img
+                  src={post.data.url}
+                  alt="Img cannot be displayed"
+                  className="feed-post-image"
+                />
+              </div>
+              <div className="score-container">
+                <VoteButtons score={post.data.score} />
               </div>
             </div>
           ))
@@ -69,15 +76,18 @@ function Feed({ results, onFilterChange }) {
       {selectedPost && (
         <div className="post-detail">
           <h1 className="post-title">{selectedPost.title}</h1>
-
           {selectedPost.selftext && (
             <p className="post-description">{selectedPost.selftext}</p>
           )}
           {selectedPost.url && (
-            <img src={selectedPost.url} alt="Post img" className="post-image" />
+            <img
+              src={selectedPost.url}
+              alt="Img cannot be displayed"
+              className="post-image"
+            />
           )}
-          <div>
-            <VoteButtons />
+          <div className="score-container">
+            <VoteButtons score={selectedPost.score} />
           </div>
           <div className="post-button-container">
             <button
