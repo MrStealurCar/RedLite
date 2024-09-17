@@ -4,7 +4,8 @@ import "./SubredditPage.css";
 import SubredditList from "../Subreddits/Subreddit";
 import Comments from "../Comments/Comments";
 import FilterButtons from "../FilterButtons/FilterButton";
-function SubredditPage({ onFilterChange, filter }) {
+import VoteButtons from "../VoteButtons/VoteButtons";
+function SubredditPage({ onFilterChange, filter, score }) {
   const { subredditName } = useParams();
   const [posts, setPosts] = useState([]);
   const [selectedPost, setSelectedPost] = useState(null);
@@ -71,7 +72,10 @@ function SubredditPage({ onFilterChange, filter }) {
               <span className="post-subreddit">
                 {" "}
                 in r/{post.data.subreddit}
-              </span>
+              </span>{" "}
+              <div className="score-container">
+                <VoteButtons score={post.data.score} />
+              </div>
             </div>
           </div>
         ))}
