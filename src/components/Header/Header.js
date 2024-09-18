@@ -19,7 +19,7 @@ function Header({ searchValue, handleSearchChange, setFilter, searchResults }) {
             className="logo"
             onClick={handleClick}
           />
-          <span className="title">
+          <span>
             red<span className="highlight">lite</span>
           </span>
         </div>
