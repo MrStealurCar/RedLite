@@ -41,6 +41,7 @@
 .post-title {
   font-size: 25px;
   margin: 0;
+  color: black;
 }
 
 .post-description {
@@ -48,6 +49,10 @@
 }
 
 .post-info {
+  display: flex;
+  flex-direction: column;
+  max-height: auto;
+  max-width: auto;
   font-size: 14px;
   color: gray;
 }
@@ -55,6 +60,19 @@
 .post-author,
 .post-subreddit {
   margin-right: 10px;
+  justify-content: flex-start;
+}
+
+.feed-post-image {
+  height: 200px;
+  width: 200px;
+  margin: 35px 0px;
+}
+
+.score-container {
+  display: flex;
+  height: 100%;
+  width: 100%;
 }
 
 .post-detail {
@@ -66,7 +84,7 @@
   top: 10%;
   left: 50%;
   transform: translateX(-50%);
-  width: 80%;
+  width: 100%;
   max-width: 800px;
   max-height: 80vh;
   z-index: 1000;
@@ -77,12 +95,14 @@
   font-size: 25px;
   max-width: 100%;
   height: auto;
+  margin-bottom: 10px;
 }
 
 .post-button-container {
   display: flex;
   justify-content: space-between;
   margin-bottom: 15px;
+  margin-top: 10px;
 }
 
 .close-button {
