@@ -18,3 +18,8 @@
 .no-comments {
   font-size: 24px;
 }
+
+.score {
+  display: flex;
+  padding-top: 15px;
+}
