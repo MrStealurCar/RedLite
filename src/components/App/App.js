@@ -10,10 +10,14 @@ function App() {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
+  const [vote, setVote] = useState({});
   const handleSearchChange = (e) => {
     setQuery(e.target.value);
   };
-
+  const handleVote = (type, event, postId) => {
+    event.stopPropagation();
+    setVote((prevVotes) => ({ ...prevVotes, [postId]: type }));
+  };
   useEffect(() => {
     const fetchData = async () => {
       let response;
@@ -64,12 +68,25 @@ function App() {
             <Routes>
               <Route
                 path="/"
-                element={<Feed results={results} onFilterChange={setFilter} />}
+                element={
+                  <Feed
+                    results={results}
+                    onFilterChange={setFilter}
+                    vote={vote}
+                    setVote={setVote}
+                    handleVote={handleVote}
+                  />
+                }
               />
               <Route
                 path="/r/:subredditName"
                 element={
-                  <SubredditPage filter={filter} onFilterChange={setFilter} />
+                  <SubredditPage
+                    filter={filter}
+                    vote={vote}
+                    onFilterChange={setFilter}
+                    handleVote={handleVote}
+                  />
                 }
               />
             </Routes>
