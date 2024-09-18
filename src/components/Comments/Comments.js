@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Comments.css";
-function Comments({ postId }) {
+import VoteButtons from "../VoteButtons/VoteButtons";
+function Comments({ postId, handleVote, vote }) {
   const [comments, setComments] = useState([]);
 
   useEffect(() => {
@@ -39,6 +40,14 @@ function Comments({ postId }) {
           <p className="comments">
             <h5>u/{comment.data.author}:</h5>
             {comment.data.body}
+            <div className="score">
+              <VoteButtons
+                score={comment.data.score}
+                handleVote={handleVote}
+                postId={comment.data.id}
+                vote={vote[comment.data.id]}
+              />
+            </div>
           </p>
         </div>
       ))}
