@@ -5,7 +5,7 @@ import SubredditList from "../Subreddits/Subreddit";
 import Comments from "../Comments/Comments";
 import FilterButtons from "../FilterButtons/FilterButton";
 import VoteButtons from "../VoteButtons/VoteButtons";
-function SubredditPage({ onFilterChange, filter, score }) {
+function SubredditPage({ onFilterChange, filter, vote, handleVote }) {
   const { subredditName } = useParams();
   const [posts, setPosts] = useState([]);
   const [selectedPost, setSelectedPost] = useState(null);
@@ -69,12 +69,19 @@ function SubredditPage({ onFilterChange, filter, score }) {
               <span className="post-author">
                 Posted by u/{post.data.author}
               </span>
-              <span className="post-subreddit">
-                {" "}
-                in r/{post.data.subreddit}
-              </span>{" "}
+              <span className="post-subreddit">in r/{post.data.subreddit}</span>
+              <img
+                src={post.data.url}
+                alt="Img cannot be displayed"
+                className="feed-post-image"
+              />
               <div className="score-container">
-                <VoteButtons score={post.data.score} />
+                <VoteButtons
+                  postId={post.data.id}
+                  score={post.data.score}
+                  vote={vote[post.data.id]}
+                  handleVote={(type, e) => handleVote(type, e, post.data.id)}
+                />
               </div>
             </div>
           </div>
@@ -92,6 +99,14 @@ function SubredditPage({ onFilterChange, filter, score }) {
                 className="post-image"
               />
             )}
+            <div className="score-container">
+              <VoteButtons
+                postId={selectedPost.id}
+                score={selectedPost.score}
+                vote={vote[selectedPost.id]}
+                handleVote={(type, e) => handleVote(type, e, selectedPost.id)}
+              />
+            </div>
             <div className="post-button-container">
               <button
                 className="close-button"
@@ -103,7 +118,15 @@ function SubredditPage({ onFilterChange, filter, score }) {
                 {showComments ? "Hide Comments" : "Show Comments"}
               </button>
             </div>
-            <div>{showComments && <Comments postId={selectedPost.id} />}</div>
+            <div>
+              {showComments && (
+                <Comments
+                  postId={selectedPost.id}
+                  handleVote={handleVote}
+                  vote={vote}
+                />
+              )}
+            </div>
           </div>
         )}
       </div>
