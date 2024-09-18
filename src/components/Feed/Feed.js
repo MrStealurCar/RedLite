@@ -109,7 +109,15 @@ function Feed({ results, onFilterChange, vote, handleVote }) {
               {showComments ? "Hide Comments" : "Show Comments"}
             </button>
           </div>
-          <div>{showComments && <Comments postId={selectedPost.id} />}</div>
+          <div>
+            {showComments && (
+              <Comments
+                postId={selectedPost.id}
+                handleVote={handleVote}
+                vote={vote}
+              />
+            )}
+          </div>
         </div>
       )}
     </div>
