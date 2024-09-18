@@ -4,10 +4,9 @@ import SubredditList from "../Subreddits/Subreddit";
 import Comments from "../Comments/Comments";
 import FilterButtons from "../FilterButtons/FilterButton";
 import VoteButtons from "../VoteButtons/VoteButtons";
-function Feed({ results, onFilterChange }) {
+function Feed({ results, onFilterChange, vote, handleVote }) {
   const [selectedPost, setSelectedPost] = useState(null);
   const [showComments, setShowComments] = useState(false);
-
   useEffect(() => {
     if (selectedPost) {
       document.body.style.overflow = "hidden";
@@ -57,7 +56,6 @@ function Feed({ results, onFilterChange }) {
                   Posted by u/{post.data.author}
                 </span>
                 <span className="post-subreddit">
-                  {" "}
                   in r/{post.data.subreddit}
                 </span>
                 <img
@@ -67,7 +65,12 @@ function Feed({ results, onFilterChange }) {
                 />
               </div>
               <div className="score-container">
-                <VoteButtons score={post.data.score} />
+                <VoteButtons
+                  postId={post.data.id}
+                  score={post.data.score}
+                  vote={vote[post.data.id]}
+                  handleVote={(type, e) => handleVote(type, e, post.data.id)}
+                />
               </div>
             </div>
           ))
@@ -87,7 +90,12 @@ function Feed({ results, onFilterChange }) {
             />
           )}
           <div className="score-container">
-            <VoteButtons score={selectedPost.score} />
+            <VoteButtons
+              postId={selectedPost.id}
+              score={selectedPost.score}
+              vote={vote[selectedPost.id]}
+              handleVote={(type, e) => handleVote(type, e, selectedPost.id)}
+            />
           </div>
           <div className="post-button-container">
             <button
