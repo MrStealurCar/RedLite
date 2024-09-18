@@ -1,13 +1,6 @@
-import React, { useState } from "react";
 import "./VoteButtons.css";
 
-function VoteButtons({ score }) {
-  const [vote, setVote] = useState(null);
-  const handleVote = (type, event) => {
-    event.stopPropagation();
-    setVote(type);
-  };
-
+function VoteButtons({ score, vote, handleVote, postId }) {
   function formatNumber(num) {
     if (!num) return 0;
 
@@ -25,7 +18,7 @@ function VoteButtons({ score }) {
   return (
     <div className="vote-buttons">
       <i
-        onClick={(e) => handleVote("upvote", e)}
+        onClick={(e) => handleVote("upvote", e, postId)}
         className={`fa fa-arrow-up ${
           vote === "upvote" ? "like" : "default-upvote"
         }`}
@@ -42,7 +35,7 @@ function VoteButtons({ score }) {
         {formattedNumber}
       </span>
       <i
-        onClick={(e) => handleVote("downvote", e)}
+        onClick={(e) => handleVote("downvote", e, postId)}
         className={`fa fa-arrow-down ${
           vote === "downvote" ? "downvote" : "default-downvote"
         }`}
