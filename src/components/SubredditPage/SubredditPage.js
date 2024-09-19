@@ -55,7 +55,9 @@ function SubredditPage({ onFilterChange, filter, vote, handleVote }) {
         <SubredditList />
       </div>
       <div className="posts">
-        <h1 className="subreddit-title">r/{subredditName}</h1>
+        <h1 className="subreddit-title">
+          {filter} post's in r/{subredditName}
+        </h1>
         {posts.map((post) => (
           <div
             key={post.data.id}
