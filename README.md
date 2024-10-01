@@ -1,70 +1,42 @@
-# Getting Started with Create React App
+# RedLite
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+RedLite is a Reddit clone that allows users to view a feed of different posts from various subreddits. The user can apply filters to the feed, and select and search for specific subreddits from a list.
 
-## Available Scripts
+## Description
 
-In the project directory, you can run:
+This app was built with React and uses the Reddit API that allows users to:
 
-### `npm start`
+- Browse and view posts from various subreddits.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Search and view specific subreddits.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Upvote/downvote posts and comments (for demonstration purposes only, does not affect actual scores.)
 
-### `npm test`
+- View comments left on posts.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Apply filters to both the main feed and specific subreddits.
 
-### `npm run build`
+## Why I built this
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- This project was built as a portfolio project that is part of the Front End Engineer career path on Codecademy and one of the projects I needed to complete to earn the Front End Engineer certification at the end of the course.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Getting Started Locally
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+To run RedLite locally:
 
-### `npm run eject`
+- Clone this repository.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Ensure you have Node installed.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Navigate into the project directory and run `npm install`.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Run `npm start` to start the development server.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Deployed at
 
-## Learn More
+This app was deployed using Netlify: https://reddlite.netlify.app/
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Contributors
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Jacob Rodriguez
+- Matthew Whitney
