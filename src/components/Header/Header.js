@@ -12,13 +12,8 @@ function Header({ searchValue, handleSearchChange, setFilter, searchResults }) {
   return (
     <header>
       <div className="head-container">
-        <div className="head-info">
-          <img
-            src="/favicon.png"
-            alt="redlite logo"
-            className="logo"
-            onClick={handleClick}
-          />
+        <div className="head-info" onClick={handleClick}>
+          <img src="/favicon.png" alt="redlite logo" className="logo" />
           <span>
             red<span className="highlight">lite</span>
           </span>
