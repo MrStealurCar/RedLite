@@ -15,6 +15,10 @@
   margin-right: 20px;
 }
 
+.head-info:hover {
+  cursor: pointer;
+}
+
 .highlight {
   color: rgb(33, 20, 214);
 }
@@ -30,8 +34,4 @@
   display: flex;
   justify-content: center;
   width: 100%;
-}
-
-.logo:hover {
-  cursor: pointer;
 }
