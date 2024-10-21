@@ -51,8 +51,6 @@
 .post-info {
   display: flex;
   flex-direction: column;
-  max-height: auto;
-  max-width: auto;
   font-size: 14px;
   color: gray;
 }
@@ -92,10 +90,9 @@
 }
 
 .post-image {
-  font-size: 25px;
-  max-width: 100%;
-  height: auto;
-  margin-bottom: 10px;
+  font-size: 20px;
+  margin: 10px 0px;
+  height: 200px;
 }
 
 .post-button-container {
@@ -135,4 +132,15 @@
   background-color: skyblue;
   transition: background-color 0.3s ease;
   color: black;
+}
+
+@media screen and (max-width: 850px) {
+}
+
+@media screen and (max-width: 450px) {
+  .post-detail {
+    width: 75%;
+    max-width: 700px;
+    max-height: 70vh;
+  }
 }
