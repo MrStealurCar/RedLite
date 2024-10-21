@@ -79,7 +79,7 @@
   padding: 20px;
   background-color: white;
   position: fixed;
-  top: 10%;
+  /* top: 10%; */
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
@@ -135,9 +135,6 @@
 }
 
 @media screen and (max-width: 850px) {
-}
-
-@media screen and (max-width: 450px) {
   .post-detail {
     width: 75%;
     max-width: 700px;
