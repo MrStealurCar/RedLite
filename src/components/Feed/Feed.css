@@ -23,6 +23,7 @@
   border-radius: 10px;
   flex-grow: 1;
   background-color: white;
+  overflow-y: scroll;
 }
 
 .post-summary {
@@ -91,7 +92,8 @@
 .post-image {
   font-size: 20px;
   margin: 10px 0px;
-  height: 200px;
+  height: 300px;
+  width: 300px;
 }
 
 .post-button-container {
