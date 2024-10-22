@@ -25,3 +25,23 @@
   padding-left: 5px;
   cursor: pointer;
 }
+
+.searchResults {
+  border: 1px solid lightgray;
+  background-color: white;
+  max-height: 200px;
+  overflow-y: auto;
+  position: absolute;
+  bottom: 60%;
+  width: 75%;
+}
+
+.searchResultItem {
+  padding: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.searchResultItem:hover {
+  background-color: #f0f0f0;
+}
