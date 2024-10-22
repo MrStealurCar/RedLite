@@ -8,11 +8,11 @@ function Feed({ results, onFilterChange, vote, handleVote }) {
   const [selectedPost, setSelectedPost] = useState(null);
   const [showComments, setShowComments] = useState(false);
   useEffect(() => {
-    if (selectedPost) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
+    // if (selectedPost) {
+    //   document.body.style.overflow = "hidden";
+    // } else {
+    //   document.body.style.overflow = "auto";
+    // }
 
     return () => {
       document.body.style.overflow = "auto"; // Cleanup
@@ -60,7 +60,7 @@ function Feed({ results, onFilterChange, vote, handleVote }) {
                 </span>
                 <img
                   src={post.data.url}
-                  alt="Img cannot be displayed"
+                  alt="Post cannot be displayed"
                   className="feed-post-image"
                 />
               </div>
@@ -85,7 +85,7 @@ function Feed({ results, onFilterChange, vote, handleVote }) {
           {selectedPost.url && (
             <img
               src={selectedPost.url}
-              alt="Img cannot be displayed"
+              alt="Post cannot be displayed"
               className="post-image"
             />
           )}
