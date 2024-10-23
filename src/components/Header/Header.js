@@ -2,7 +2,13 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./Header.css";
 import SearchBar from "../SearchBar/SearchBar";
-function Header({ searchValue, handleSearchChange, setFilter, searchResults }) {
+function Header({
+  searchValue,
+  handleSearchChange,
+  setFilter,
+  searchResults,
+  handleResultClick,
+}) {
   const navigate = useNavigate();
 
   function handleClick() {
@@ -24,6 +30,7 @@ function Header({ searchValue, handleSearchChange, setFilter, searchResults }) {
             searchValue={searchValue}
             handleSearchChange={handleSearchChange}
             setFilter={setFilter}
+            handleResultClick={handleResultClick}
           />
         </div>
       </div>
