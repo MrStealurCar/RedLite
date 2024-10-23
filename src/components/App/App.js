@@ -9,11 +9,27 @@ function App() {
   const [filter, setFilter] = useState("hot");
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
+  const [searchInput, setSearchInput] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [vote, setVote] = useState({});
   const handleSearchChange = (e) => {
-    setQuery(e.target.value);
+    const newValue = e.target.value;
+    console.log("Search input changed:", e.target.value);
+
+    setSearchInput(newValue);
+
+    if (newValue === "") {
+      setSearchResults([]);
+    }
   };
+
+  const handleResultClick = (subredditName) => {
+    console.log(`Selected subreddit: ${subredditName}`);
+    setFilter(subredditName);
+    setQuery("");
+    setSearchResults([]);
+  };
+
   const handleVote = (type, event, postId) => {
     event.stopPropagation();
     setVote((prevVotes) => ({ ...prevVotes, [postId]: type }));
@@ -32,7 +48,6 @@ function App() {
         response = await fetch(`https://api.reddit.com/${filter}.json`);
       }
       const results = await response.json();
-      console.log("results:", results);
       setResults(results);
     };
     fetchData();
@@ -41,17 +56,17 @@ function App() {
   useEffect(() => {
     const fetchSubreddits = async () => {
       const response =
-        await fetch(`https://www.reddit.com/subreddits/search.json?q=${query}
+        await fetch(`https://www.reddit.com/subreddits/search.json?q=${searchInput}
 `);
       const results = await response.json();
-      setSearchResults(results);
+      setSearchResults(results.data.children.map((child) => child.data));
     };
-    if (query) {
+    if (searchInput.length >= 2) {
       fetchSubreddits();
     } else {
       setSearchResults([]);
     }
-  }, [query]);
+  }, [searchInput]);
 
   return (
     <div className="App">
@@ -59,11 +74,12 @@ function App() {
         <Router>
           <div>
             <Header
-              searchValue={query}
+              searchValue={searchInput}
               searchResults={searchResults}
-              setQuery={setQuery}
+              setSearchResults={setSearchResults}
               handleSearchChange={handleSearchChange}
               setFilter={setFilter}
+              handleResultClick={handleResultClick}
             />
             <Routes>
               <Route
