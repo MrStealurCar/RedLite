@@ -7,13 +7,21 @@ function Header({
   handleSearchChange,
   setFilter,
   searchResults,
-  handleResultClick,
+  setQuery,
+  setSearchResults,
 }) {
   const navigate = useNavigate();
 
   function handleClick() {
     navigate("/");
   }
+
+  const handleResultClick = (subredditName) => {
+    console.log(`Selected subreddit: ${subredditName}`);
+    setQuery("");
+    setSearchResults([]);
+    navigate(`/r/${subredditName}`);
+  };
 
   return (
     <header>

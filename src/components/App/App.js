@@ -23,13 +23,6 @@ function App() {
     }
   };
 
-  const handleResultClick = (subredditName) => {
-    console.log(`Selected subreddit: ${subredditName}`);
-    setFilter(subredditName);
-    setQuery("");
-    setSearchResults([]);
-  };
-
   const handleVote = (type, event, postId) => {
     event.stopPropagation();
     setVote((prevVotes) => ({ ...prevVotes, [postId]: type }));
@@ -79,7 +72,7 @@ function App() {
               setSearchResults={setSearchResults}
               handleSearchChange={handleSearchChange}
               setFilter={setFilter}
-              handleResultClick={handleResultClick}
+              setQuery={setQuery}
             />
             <Routes>
               <Route
