@@ -27,11 +27,11 @@ function SubredditPage({ onFilterChange, filter, vote, handleVote }) {
   }, [subredditName, filter]);
 
   useEffect(() => {
-    if (selectedPost) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
+    // if (selectedPost) {
+    //   document.body.style.overflow = "hidden";
+    // } else {
+    //   document.body.style.overflow = "auto";
+    // }
 
     return () => {
       document.body.style.overflow = "auto"; // Cleanup
@@ -88,50 +88,46 @@ function SubredditPage({ onFilterChange, filter, vote, handleVote }) {
             </div>
           </div>
         ))}
-        {selectedPost && (
-          <div className="post-detail">
-            <h1 className="post-title">{selectedPost.title}</h1>
-            {selectedPost.selftext && (
-              <p className="post-description">{selectedPost.selftext}</p>
-            )}
-            {selectedPost.url && (
-              <img
-                src={selectedPost.url}
-                alt="Post img"
-                className="post-image"
-              />
-            )}
-            <div className="score-container">
-              <VoteButtons
-                postId={selectedPost.id}
-                score={selectedPost.score}
-                vote={vote[selectedPost.id]}
-                handleVote={(type, e) => handleVote(type, e, selectedPost.id)}
-              />
-            </div>
-            <div className="post-button-container">
-              <button
-                className="close-button"
-                onClick={() => setSelectedPost(null)}
-              >
-                Close
-              </button>
-              <button className="comment-button" onClick={toggleComments}>
-                {showComments ? "Hide Comments" : "Show Comments"}
-              </button>
-            </div>
-            <div>
-              {showComments && (
-                <Comments
-                  postId={selectedPost.id}
-                  handleVote={handleVote}
-                  vote={vote}
-                />
-              )}
-            </div>
-          </div>
-        )}
       </div>
+      {selectedPost && (
+        <div className="post-detail">
+          <h1 className="post-title">{selectedPost.title}</h1>
+          {selectedPost.selftext && (
+            <p className="post-description">{selectedPost.selftext}</p>
+          )}
+          {selectedPost.url && (
+            <img src={selectedPost.url} alt="Post img" className="post-image" />
+          )}
+          <div className="score-container">
+            <VoteButtons
+              postId={selectedPost.id}
+              score={selectedPost.score}
+              vote={vote[selectedPost.id]}
+              handleVote={(type, e) => handleVote(type, e, selectedPost.id)}
+            />
+          </div>
+          <div className="post-button-container">
+            <button
+              className="close-button"
+              onClick={() => setSelectedPost(null)}
+            >
+              Close
+            </button>
+            <button className="comment-button" onClick={toggleComments}>
+              {showComments ? "Hide Comments" : "Show Comments"}
+            </button>
+          </div>
+          <div>
+            {showComments && (
+              <Comments
+                postId={selectedPost.id}
+                handleVote={handleVote}
+                vote={vote}
+              />
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
