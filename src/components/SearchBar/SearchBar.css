@@ -45,3 +45,17 @@
 .searchResultItem:hover {
   background-color: #f0f0f0;
 }
+
+@media screen and (max-width: 700px) {
+  .searchBar {
+    font-size: 18px;
+    width: 40%;
+    height: 20%;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .searchBar {
+    width: 50%;
+  }
+}
