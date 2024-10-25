@@ -47,18 +47,24 @@ function App() {
   }, [query, filter]);
 
   useEffect(() => {
-    const fetchSubreddits = async () => {
-      const response =
-        await fetch(`https://www.reddit.com/subreddits/search.json?q=${searchInput}
-`);
-      const results = await response.json();
-      setSearchResults(results.data.children.map((child) => child.data));
+    const handler = setTimeout(() => {
+      if (searchInput.length > 1) {
+        const fetchSubreddits = async () => {
+          const response = await fetch(
+            `https://www.reddit.com/subreddits/search.json?q=${searchInput}`
+          );
+          const results = await response.json();
+          setSearchResults(results.data.children.map((child) => child.data));
+        };
+        fetchSubreddits();
+      } else {
+        setSearchResults([]);
+      }
+    }, 100);
+
+    return () => {
+      clearTimeout(handler);
     };
-    if (searchInput.length >= 2) {
-      fetchSubreddits();
-    } else {
-      setSearchResults([]);
-    }
   }, [searchInput]);
 
   return (
