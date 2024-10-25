@@ -5,7 +5,7 @@
   margin-top: 10px;
   background-color: lightgray;
   border: none;
-  border-radius: 15px;
+  border-radius: 10px;
 }
 
 .subreddit-title {
@@ -25,4 +25,5 @@
 .subreddit-button:hover {
   background-color: skyblue;
   transition: background-color 0.3s ease;
+  border-radius: 10px;
 }
