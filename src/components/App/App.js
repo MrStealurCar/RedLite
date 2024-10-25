@@ -60,7 +60,7 @@ function App() {
       } else {
         setSearchResults([]);
       }
-    }, 100);
+    }, 300);
 
     return () => {
       clearTimeout(handler);
