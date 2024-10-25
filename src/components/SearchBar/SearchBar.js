@@ -11,7 +11,7 @@ function SearchBar({
   return (
     <div className="searchContainer">
       <input
-        placeholder="Search Subreddits"
+        placeholder="Search Redlite"
         className="searchBar"
         onChange={handleSearchChange}
         value={searchValue}
