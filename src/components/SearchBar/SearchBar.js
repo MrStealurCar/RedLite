@@ -11,7 +11,7 @@ function SearchBar({
   return (
     <div className="searchContainer">
       <input
-        placeholder="Search Redlite"
+        placeholder="Search RedLite"
         className="searchBar"
         onChange={handleSearchChange}
         value={searchValue}
