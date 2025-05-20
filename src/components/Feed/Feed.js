@@ -8,12 +8,6 @@ function Feed({ results, onFilterChange, vote, handleVote }) {
   const [selectedPost, setSelectedPost] = useState(null);
   const [showComments, setShowComments] = useState(false);
   useEffect(() => {
-    // if (selectedPost) {
-    //   document.body.style.overflow = "hidden";
-    // } else {
-    //   document.body.style.overflow = "auto";
-    // }
-
     return () => {
       document.body.style.overflow = "auto"; // Cleanup
     };
