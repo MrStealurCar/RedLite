@@ -34,11 +34,19 @@ function App() {
       if (query) {
         // Search endpoint
         response = await fetch(
-          `https://api.reddit.com/search.json?q=${query}&sort=${filter}`
+          `https://cors-anywhere.herokuapp.com/https://api.reddit.com/search.json?q=${query}&sort=${filter}`
+
+          // Original Route
+          // `https://api.reddit.com/search.json?q=${query}&sort=${filter}`
         );
       } else {
         //Listings endpoint
-        response = await fetch(`https://api.reddit.com/${filter}.json`);
+        response = await fetch(
+          `https://cors-anywhere.herokuapp.com/https://api.reddit.com/${filter}.json`
+        );
+
+        // Original Route
+        // response = await fetch(`https://api.reddit.com/${filter}.json`);
       }
       const results = await response.json();
       setResults(results);
@@ -51,8 +59,12 @@ function App() {
       if (searchInput.length > 1) {
         const fetchSubreddits = async () => {
           const response = await fetch(
-            `https://www.reddit.com/subreddits/search.json?q=${searchInput}`
+            `https://cors-anywhere.herokuapp.com/https://www.reddit.com/subreddits/search.json?q=${searchInput}`
+
+            // Original Route
+            // `https://www.reddit.com/subreddits/search.json?q=${searchInput}`
           );
+
           const results = await response.json();
           setSearchResults(results.data.children.map((child) => child.data));
         };
