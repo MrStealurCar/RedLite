@@ -1,0 +1,12 @@
+Fix filter buttons not applying filter when on subreddit page ✅
+Make search bar work
+redirect to searched subreddit page 
+style vote buttons ✅
+Get number of upvotes on posts ✅
+import VoteButtons into Feed and SubredditPage and render them ✅
+Figure out how to keep button state (E.x if upvoting/downvoting a post in the feed, it wont keep its state when post is clicked on)✅ 
+Figure out why logo disappears when reloading page when on a subreddit✅
+update README✅
+Fix searchBar not working on deployed version
+Fix padding issue on mobile in detailed post
+Fix filter button text color on mobile

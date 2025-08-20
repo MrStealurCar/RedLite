@@ -1,0 +1,25 @@
+.comment-info {
+  display: flex;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 100%;
+  background-color: lightgrey;
+}
+
+.comments {
+  padding: 0px 15px 20px;
+  border: 2px solid rgb(33, 20, 214);
+  background-color: white;
+}
+
+.no-comments {
+  font-size: 24px;
+}
+
+.score {
+  display: flex;
+  padding-top: 15px;
+}
