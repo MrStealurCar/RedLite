@@ -32,4 +32,15 @@ feedRouter.get("/:subreddit", async (req, res) => {
   }
 });
 
+// Get route for subreddit list
+feedRouter.get("/subreddits", async (req, res) => {
+  try {
+    const response = await fetch(`https://www.reddit.com/subreddits.json`);
+    const data = await response.json();
+    res.send(data);
+  } catch (error) {
+    res.status(500).send({ error: "Could not fetch subreddits" });
+  }
+});
+
 module.exports = { feedRouter };
